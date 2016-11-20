@@ -1,10 +1,18 @@
 # requireris
 Epitech security project in which we had to make an OTP generator
 
-# Usage
-##/!\ You will need [Node.js](https://nodejs.org/) in order to launch the app
+# Installation
+### You will need [Node.js](https://nodejs.org/) in order to launch the app
 
-In the project repository, you can type :
+Before you can do anything with that repo, you must download the dependencies with node package manager so open a terminal, go to the project directory and type:
+
+``
+npm install
+``
+
+# Usage
+
+In the project repository, you can type:
 
 ``
 node requireris.js
