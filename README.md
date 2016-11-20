@@ -10,6 +10,6 @@ In the project repository, you can type :
 node requireris.js
 ``
 
-Then you can go in your navigator at http://localhost:4242
+Then you can go in your navigator at [http://localhost:4242](http://localhost:4242)
 
 You type the key, hit the 'Validate button' and you will get a HOTP code with parameters according the [Google Authenticator app](https://fr.wikipedia.org/wiki/Google_Authenticator#Pseudocode_de_l.27algorithme_RFC_6238)
