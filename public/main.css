@@ -1,0 +1,107 @@
+#radioflex {
+  display: flex;
+  justify-content: center;
+}
+
+#radio {
+  display: flex;
+  justify-content: space-between;
+  width: 550px;
+}
+
+.otpLabel {
+  padding: 20px;
+  font-size: 30px;
+  color: #fff;
+  background-color: #6496c8;
+  text-shadow: -1px 1px #417cb8;
+}
+
+.hover {
+  background-color: #346392;
+  text-shadow: -1px 1px #27496d;
+  cursor: pointer;
+}
+
+.selected {
+  color: white;
+  background-color: #27496d;
+  text-shadow: -1px 1px #193047;
+}
+
+#messageKey {
+  display: flex;
+  justify-content: center;
+}
+
+#textFieldsFlex {
+  display: flex;
+  justify-content: center;
+}
+
+.textFieldsWithImage {
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+}
+
+.textFieldsWithImage img {
+  width: 50px;
+  height: 50px;
+}
+
+#textFields input {
+  border-top-style: none;
+  border-left-style: none;
+  border-right-style: none;
+  font-size: 40px;
+  outline: none;
+  height: 50px;
+  width: 500px;
+}
+
+#textFields input:focus {
+  border-color: #6496c8;
+}
+
+#textFields #submit {
+  display: block;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 30px;
+  margin-top: 50px;
+  color: #fff;
+  background-color: #6496c8;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 10px #27496d;
+  width: 150px;
+}
+
+#textFields #submit:hover {
+  background-color: #417cb8
+}
+
+#textFields #submit:active {
+  background-color: #417cb8;
+  box-shadow: 0 5px #27496d;
+  transform: translateY(5px);
+}
+
+#reponse {
+  display: flex;
+  justify-content: center;
+  font-size: 40px;
+  padding: 50px;
+  color: #318CE7;
+}
+
+form {
+  margin-top: 276px;
+}
+
+input[type="radio"] {
+  display: none;
+}

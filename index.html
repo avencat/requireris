@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" type="text/css" href="main.css" />
+    <title>HOTP/TOTP OTP</title>
+  </head>
+
+  <body>
+    <span id="paddingFront"></span>
+    <form action="/" method="post" id="formulaire">
+      <span id="radioflex">
+        <span id="radio">
+          <label for="totp" id="totpLabel" class="otpLabel">TOTP</label>
+          <input type="radio" name="type" value="totp" checked="true" id="totp" />
+          <label for="hotp" id="hotpLabel" class="otpLabel">HOTP</label>
+          <input type="radio" name="type" value="hotp" id="hotp" />
+        </span>
+      </span>
+      <span id="textFieldsFlex">
+        <span id="textFields">
+          <span class="textFieldsWithImage">
+            <img src="lock.png">
+            <input type="text" name="secret" placeholder="Secret key" autofocus="true" id="secret" />
+          </span>
+          <span id="counter_zone" class="textFieldsWithImage"></span>
+          <input type="submit" value="Validate" id="submit" />
+        </span>
+      </span>
+    </form>
+
+    <section id="zone_reponse">
+      <strong><p id="reponse"></p></strong>
+    </section>
+
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+      // Connexion à socket.io
+      let socket = io.connect('http://localhost:4242');
+      let totp = document.getElementById('totp');
+      let hotp = document.getElementById('hotp');
+
+      $('#totpLabel').addClass('selected');
+      // Quand on appuie sur le bouton d'envoi
+      $('#formulaire').submit(function () {
+        if (totp.checked && $('#secret').val().length > 0) {
+          socket.emit('totp_asking', $('#secret').val());
+          $('#secret').val('').focus();
+        } else if (hotp.checked && $('#counter').val().length > 0 && $('#secret').val().length > 0) {
+          socket.emit('hotp_asking', $('#secret').val(), $('#counter').val());
+          $('#counter').val('');
+          $('#secret').val('').focus();
+        } else {
+          alert('Please fill all the fields !');
+          $("#secret").focus();
+        }
+        return false;
+      });
+
+      socket.on('hotp_response', function(data) {
+        $('#reponse').text('Votre code : ' + data);
+      });
+
+      $('#hotpLabel').hover(function() {
+        if (hotp.checked) {return ;}
+        $('#hotpLabel').addClass('hover');
+      }, function() {
+        if (hotp.checked) {return ;}
+        $('#hotpLabel').removeClass('hover');
+      });
+
+      $('#totpLabel').hover(function() {
+        if (totp.checked) {return ;}
+        $('#totpLabel').addClass('hover');
+      }, function() {
+        if (totp.checked) {return ;}
+        $('#totpLabel').removeClass('hover');
+      });
+
+      $('#hotp').change(function() {
+        if (this.checked) {
+          $('#hotpLabel').addClass('selected');
+          $('#totpLabel').removeClass('selected');
+          $('#hotpLabel').removeClass('hover');
+          $('#counter_zone').prepend('<img src="timer.png" id="timerImg"><input type="text" name="counter" placeholder="Counter" id="counter" />');
+          $("#secret").focus();
+        }
+      });
+      $('#totp').change(function() {
+        if (this.checked) {
+          $('#totpLabel').addClass('selected');
+          $('#hotpLabel').removeClass('selected');
+          $('#totpLabel').removeClass('hover');
+          let element = document.getElementById('counter');
+          element.parentNode.removeChild(element);
+          element = document.getElementById('timerImg');
+          element.parentNode.removeChild(element);
+          $("#secret").focus();
+        }
+      });
+    </script>
+  </body>
+</html>
