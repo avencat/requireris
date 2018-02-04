@@ -2,25 +2,25 @@
 Epitech security project in which we had to make an OTP generator
 
 # Installation
-### You will need [Node.js](https://nodejs.org/) in order to launch the app
+### You will need [Node.js](https://nodejs.org/) with [npm](https://www.npmjs.com) (installed with Node.js) or [yarn](https://yarnpkg.com/) in order to launch the app
 
 Before you can do anything with that repo, you must download the dependencies with node package manager so open a terminal, go to the project directory and type:
 
-``
+```shell
 npm install
 # or
 yarn
-``
+```
 
 # Usage
 
 In the project repository, you can type:
 
-``
+```shell
 npm start
 # or
 yarn start
-``
+```
 
 Then you can go in your navigator at [http://localhost:4242](http://localhost:4242)
 
