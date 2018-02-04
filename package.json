@@ -4,17 +4,18 @@
   "description": "Requireris project for Epitech",
   "main": "requireris.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node requireris.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "thirty-two": "^1.0.2",
+    "ent": "~0.1.0",
     "express": "~3.3.4",
-    "jQuery": "~1.7.4",
+    "jquery": ">=2.0.0",
     "jsdom": "9.8.3",
-    "xmlhttprequest": "1.8.0",
     "socket.io": "~1.2.1",
-    "ent": "~0.1.0"
+    "thirty-two": "^1.0.2",
+    "xmlhttprequest": "1.8.0"
   }
 }

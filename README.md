@@ -8,6 +8,8 @@ Before you can do anything with that repo, you must download the dependencies wi
 
 ``
 npm install
+# or
+yarn
 ``
 
 # Usage
@@ -15,7 +17,9 @@ npm install
 In the project repository, you can type:
 
 ``
-node requireris.js
+npm start
+# or
+yarn start
 ``
 
 Then you can go in your navigator at [http://localhost:4242](http://localhost:4242)
